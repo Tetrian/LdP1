@@ -4,7 +4,11 @@
   si raggiunge in N passi visitando l’albero in preordine.
 *)
 
-(* definizione albero binazio *)
+(* definizione albero binario *)
 datatype albero = vuoto | nodo of int * albero * albero;
+val A = nodo(1, nodo(2, nodo(4, vuoto, vuoto), nodo(5, vuoto, vuoto)), nodo(3, vuoto, vuoto));
+        (*1*)
+    (*2*)   (*3*)
+(*4*) (*5*)
 
-fun 
+(* stampa del nodo N in pre order *)
