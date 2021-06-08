@@ -20,10 +20,21 @@ append([X,Tail], L, [X|RisParx]) :- append(Tail, L, RisParz).
 prefix(Prefix, List) :- append(Prefix, _, List).
 suffix(Suffix, List) :- append(_, Suffix, List).
 
-% Definizione alternativa di member attraverso append
-member(X, L) :- append(_, [X|_], L).
+% % Definizione alternativa di member attraverso append
+% member(X, L) :- append(_, [X|_], L).
 
 % Calcolo di una sottolista (intersezione tra prefisso e suffisso) di L
 sublist ( Sub , L ) : - prefix ( Pre , List ) , suffix ( Sub , Pre ).
+
+/* *************************************************************************** */
+
+/* Ricerca di un membro pari della lista */
+
+% stile generate and test
+membro_pari(X, L) :- member(X, L), 0 is X mod 2.
+
+% % invece di ricorsione ad hoc
+% membro_pari(X, [X|_]) :- 0 is X mod 2.
+% membro_pari(X, [_|Resto]) :- membro_pari(X, Resto).
 
 /* *************************************************************************** */
