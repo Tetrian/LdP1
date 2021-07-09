@@ -23,14 +23,45 @@ public class Conto {
   public double getSaldo() {
     return saldo;
   }
+
+  /* ************************************************************************ */
+
+  // Versione 1 di deposita e preleva
+
+  // // Aggiunge una somma al saldo corrente
+  // public void deposita(double val) {
+  //   saldo = saldo + val;
+  // }
+  //
+  // // Sottrae una somma dal saldo corrente
+  // public void preleva(double val) {
+  //   saldo = saldo - val;
+  // }
+
+  /* ************************************************************************ */
+
+  // Versione 2 di deposita e preleva
+
   // Aggiunge una somma al saldo corrente
-  public void deposita(double val) {
-    saldo = saldo + val;
+  public boolean deposita(double val) {
+    if (val > 0) {
+      saldo = saldo + val;
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   // Sottrae una somma dal saldo corrente
-  public void preleva(double val) {
-    saldo = saldo - val;
+  public boolean preleva(double val) {
+    if (saldo >= val) {
+      saldo = saldo - val;
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   /* ************************************************************************ */
