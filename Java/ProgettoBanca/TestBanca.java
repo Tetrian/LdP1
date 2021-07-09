@@ -9,6 +9,8 @@ import banca.*;
 
 /* ************************************************************************** */
 
+// Test per Classe conto
+
 public class TestBanca {
 
   public static void main(String[] args) {
