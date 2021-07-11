@@ -6,11 +6,11 @@
 /* ************************************************************************** */
 
 import banca.dominio.*;
-// import banca.rapporti.RapportoClienti; // commenta per test antecedenti al singoletto
+import banca.rapporti.RapportoClienti; // commenta per esercizi da 7 a 11
 
 /* ************************************************************************** */
 
-// // Test per classe Conto versione 1
+// // Test per classe Conto versione 1 [ESERCIZIO 7]
 //
 // public class TestBanca {
 //
@@ -37,7 +37,7 @@ import banca.dominio.*;
 
 /* ************************************************************************** */
 
-// // Test per classe Cliente
+// // Test per classe Cliente versione 1 [ESERCIZIO 8]
 //
 // public class TestBanca {
 //
@@ -68,7 +68,7 @@ import banca.dominio.*;
 
 /* ************************************************************************** */
 
-// // Test per classe Conto versione 2 (modifica metodi deposita e preleva)
+// // Test per classe Conto versione 2 (modifica metodi deposita e preleva) [ESERCIZIO 9]
 //
 // public class TestBanca {
 //
@@ -95,7 +95,7 @@ import banca.dominio.*;
 
 /* ************************************************************************** */
 
-// // Test per classe Banca (uso di array per molteplicità)
+// // Test per classe Banca versione 1 (uso di array per molteplicità) [ESERCIZIO 10]
 //
 // public class TestBanca {
 //
@@ -118,110 +118,168 @@ import banca.dominio.*;
 
 /* ************************************************************************** */
 
-// Test per sottoclassi di Conto
+// // Test per sottoclassi di Conto [ESERCIZIO 11 (parte 1)]
+//
+// public class TestBanca {
+//
+//   public static void main(String[] args) {
+//     Banca banca = new Banca();
+//     Cliente cliente;
+//     Conto conto;
+//
+//     // Creazione dei clienti e dei loro conti
+//
+//     System.out.println("Creazione del cliente Carla Rossi.");
+//     banca.addCliente("Carla", "Rossi");
+//     cliente = banca.getCliente(0);
+//     System.out.println("Creazione del suo Libretto di Risparmio con saldo iniziale 500.00 e interesse 3%.");
+//     cliente.setConto(new LibrettoRisparmio(500.00, 0.03));
+//
+//     System.out.println("Creazione del cliente Anna Bruni.");
+//     banca.addCliente("Anna", "Bruni");
+//     cliente = banca.getCliente(1);
+//     System.out.println("Creazione del suo Conto Corrente con saldo iniziale 500.00 e senza tolleranza di scoperto.");
+//     cliente.setConto(new ContoCorrente(500.00));
+//
+//     System.out.println("Creazione del cliente Raul Falchi.");
+//     banca.addCliente("Raul", "Falchi");
+//     cliente = banca.getCliente(2);
+//     System.out.println("Creazione del suo Conto Corrente con saldo iniziale 500.00 e massimo scoperto 500.00.");
+//     cliente.setConto(new ContoCorrente(500.00, 500.00));
+//
+//     System.out.println("Creazione del cliente Vale Bova.");
+//     banca.addCliente("Vale", "Bova");
+//     cliente = banca.getCliente(3);
+//     System.out.println("Vale condivide il conto di suo marito Raul.");
+//     cliente.setConto(banca.getCliente(2).getConto());
+//
+//     System.out.println();
+//
+//     // Dimostrazione dei comportamenti dei vari tipi di conto
+//
+//     // Test di un Libretto Risparmio
+//     System.out.println("Test del Libretto Risparmio di Carla Rossi.");
+//     cliente = banca.getCliente(0);
+//     conto = cliente.getConto();
+//     // Esegui alcune transazioni
+//     System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
+//     System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
+//     System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
+//     System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
+//     // Stampa il saldo finale
+//     System.out.println("Cliente " + cliente.getNome() + " " +
+//                        cliente.getCognome() + " ha un saldo di " +
+//                        conto.getSaldo());
+//
+//     System.out.println();
+//
+//     // Test di un Conto Corrente senza scoperto
+//     System.out.println("Test del Conto Corrente di Anna Bruni.");
+//     cliente = banca.getCliente(1);
+//     conto = cliente.getConto();
+//     // Esegui alcune transazioni
+//     System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
+//     System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
+//     System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
+//     System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
+//     // Stampa il saldo finale
+//     System.out.println("Cliente " + cliente.getNome() + " " +
+//                        cliente.getCognome() + " ha un saldo di " +
+//                        conto.getSaldo());
+//
+//     System.out.println();
+//
+//     // Test di un Conto Corrente con massimo scoperto
+//     System.out.println("Test del Conto Corrente di Raul Falchi.");
+//     cliente = banca.getCliente(2);
+//     conto = cliente.getConto();
+//     // Esegui alcune transazioni
+//     System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
+//     System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
+//     System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
+//     System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
+//     // Stampa il saldo finale
+//     System.out.println("Cliente " + cliente.getNome() + " " +
+//                        cliente.getCognome() + " ha un saldo di " +
+//                        conto.getSaldo());
+//
+//     System.out.println();
+//
+//     // Test di un Conto Corrente con massimo scoperto
+//     System.out.println("Test del ContoCorrente di Vale Bova.");
+//     cliente = banca.getCliente(3);
+//     conto = cliente.getConto();
+//     // Esegui alcune transazioni
+//     System.out.println("Deposito di 150.00: " + conto.deposita(150.00));
+//     System.out.println("Prelievo di 750.00: " + conto.preleva(750.00));
+//     // Stampa il saldo finale
+//     System.out.println("Cliente " + cliente.getNome() + " " +
+//                        cliente.getCognome() + " ha un saldo di " +
+//                        conto.getSaldo());
+//   }
+// }
+
+/* ************************************************************************** */
+
+// Test per classe Cliente versione 2 [ESERCIZIO 11 (parte 2)]
 
 public class TestBanca {
 
   public static void main(String[] args) {
     Banca banca = new Banca();
     Cliente cliente;
-    Conto conto;
 
     // Creazione dei clienti e dei loro conti
 
-    System.out.println("Creazione del cliente Carla Rossi.");
     banca.addCliente("Carla", "Rossi");
     cliente = banca.getCliente(0);
-    System.out.println("Creazione del suo Libretto di Risparmio con saldo iniziale 500.00 e interesse 3%.");
-    cliente.setConto(new LibrettoRisparmio(500.00, 0.03));
+    cliente.addConto(new LibrettoRisparmio(500.00, 0.05));
+    cliente.addConto(new ContoCorrente(200.00, 400.00));
 
-    System.out.println("Creazione del cliente Anna Bruni.");
     banca.addCliente("Anna", "Bruni");
     cliente = banca.getCliente(1);
-    System.out.println("Creazione del suo Conto Corrente con saldo iniziale 500.00 e senza tolleranza di scoperto.");
-    cliente.setConto(new ContoCorrente(500.00));
+    cliente.addConto(new ContoCorrente(200.00));
 
-    System.out.println("Creazione del cliente Raul Falchi.");
     banca.addCliente("Raul", "Falchi");
     cliente = banca.getCliente(2);
-    System.out.println("Creazione del suo Conto Corrente con saldo iniziale 500.00 e massimo scoperto 500.00.");
-    cliente.setConto(new ContoCorrente(500.00, 500.00));
+    cliente.addConto(new ContoCorrente(200.00));
+    cliente.addConto(new LibrettoRisparmio(1500.00, 0.05));
 
-    System.out.println("Creazione del cliente Vale Bova.");
     banca.addCliente("Vale", "Bova");
     cliente = banca.getCliente(3);
-    System.out.println("Vale condivide il conto di suo marito Raul.");
-    cliente.setConto(banca.getCliente(2).getConto());
+    cliente.addConto(banca.getCliente(2).getConto(0));
+    cliente.addConto(new LibrettoRisparmio(150.00, 0.05));
 
-    System.out.println();
+    // Genera un rapporto
 
-    // Dimostrazione dei comportamenti dei vari tipi di conto
+    for (int i=0; i < banca.getNumClienti(); i++) {
+      cliente = banca.getCliente(i);
 
-    // Test di un Libretto Risparmio
-    System.out.println("Test del Libretto Risparmio di Carla Rossi.");
-    cliente = banca.getCliente(0);
-    conto = cliente.getConto();
-    // Esegui alcune transazioni
-    System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
-    System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
-    System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
-    System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
-    // Stampa il saldo finale
-    System.out.println("Cliente " + cliente.getNome() + " " +
-                       cliente.getCognome() + " ha un saldo di " +
-                       conto.getSaldo());
+      System.out.println();
+      System.out.println("Cliente: " + cliente.getNome() + " " +cliente.getCognome());
 
-    System.out.println();
+      for (int j=0; j < cliente.getNumConti(); j++) {
+        Conto conto = cliente.getConto(j);
+        String tipo_conto = "";
 
-    // Test di un Conto Corrente senza scoperto
-    System.out.println("Test del Conto Corrente di Anna Bruni.");
-    cliente = banca.getCliente(1);
-    conto = cliente.getConto();
-    // Esegui alcune transazioni
-    System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
-    System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
-    System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
-    System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
-    // Stampa il saldo finale
-    System.out.println("Cliente " + cliente.getNome() + " " +
-                       cliente.getCognome() + " ha un saldo di " +
-                       conto.getSaldo());
+        // Determinare il tipo di conto
+        if (conto instanceof LibrettoRisparmio) {
+          tipo_conto = "Libretto Risparmio";
+        }
+        if (conto instanceof ContoCorrente) {
+          tipo_conto = "Conto Corrente";
+        }
 
-    System.out.println();
-
-    // Test di un Conto Corrente con massimo scoperto
-    System.out.println("Test del Conto Corrente di Raul Falchi.");
-    cliente = banca.getCliente(2);
-    conto = cliente.getConto();
-    // Esegui alcune transazioni
-    System.out.println("Prelievo di 150.00: " + conto.preleva(150.00));
-    System.out.println("Deposito di  22.50: " + conto.deposita(22.50));
-    System.out.println("Prelievo di  47.62: " + conto.preleva(47.62));
-    System.out.println("Prelievo di 400.00: " + conto.preleva(400.00));
-    // Stampa il saldo finale
-    System.out.println("Cliente " + cliente.getNome() + " " +
-                       cliente.getCognome() + " ha un saldo di " +
-                       conto.getSaldo());
-
-    System.out.println();
-
-    // Test di un Conto Corrente con massimo scoperto
-    System.out.println("Test del ContoCorrente di Vale Bova.");
-    cliente = banca.getCliente(3);
-    conto = cliente.getConto();
-    // Esegui alcune transazioni
-    System.out.println("Deposito di 150.00: " + conto.deposita(150.00));
-    System.out.println("Prelievo di 750.00: " + conto.preleva(750.00));
-    // Stampa il saldo finale
-    System.out.println("Cliente " + cliente.getNome() + " " +
-                       cliente.getCognome() + " ha un saldo di " +
-                       conto.getSaldo());
+        // Stampare il saldo del conto
+        System.out.println( "Conto[" + j + "] Saldo del " + tipo_conto + " : " + conto.getSaldo());
+      }
+    }
   }
 }
 
 /* ************************************************************************** */
 
-// // ESERCIZIO 12
+// // Test per classe Banca versione 2 [ESERCIZIO 12]
 //
 // public class TestBanca {
 //
