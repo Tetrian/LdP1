@@ -8,7 +8,7 @@ package banca.dominio;
 public class Cliente /* Versione 2 */ {
 
   // Attributi
-  private static int MAX_CONTI = 5;
+  private static final int MAX_CONTI = 5;
   private int numConti;
   private Conto [] conti;
   private String nome;

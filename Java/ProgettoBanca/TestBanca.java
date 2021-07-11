@@ -221,74 +221,16 @@ import banca.rapporti.RapportoClienti; // commenta per esercizi da 7 a 11
 
 /* ************************************************************************** */
 
-// Test per classe Cliente versione 2 [ESERCIZIO 11 (parte 2)]
-
-public class TestBanca {
-
-  public static void main(String[] args) {
-    Banca banca = new Banca();
-    Cliente cliente;
-
-    // Creazione dei clienti e dei loro conti
-
-    banca.addCliente("Carla", "Rossi");
-    cliente = banca.getCliente(0);
-    cliente.addConto(new LibrettoRisparmio(500.00, 0.05));
-    cliente.addConto(new ContoCorrente(200.00, 400.00));
-
-    banca.addCliente("Anna", "Bruni");
-    cliente = banca.getCliente(1);
-    cliente.addConto(new ContoCorrente(200.00));
-
-    banca.addCliente("Raul", "Falchi");
-    cliente = banca.getCliente(2);
-    cliente.addConto(new ContoCorrente(200.00));
-    cliente.addConto(new LibrettoRisparmio(1500.00, 0.05));
-
-    banca.addCliente("Vale", "Bova");
-    cliente = banca.getCliente(3);
-    cliente.addConto(banca.getCliente(2).getConto(0));
-    cliente.addConto(new LibrettoRisparmio(150.00, 0.05));
-
-    // Genera un rapporto
-
-    for (int i=0; i < banca.getNumClienti(); i++) {
-      cliente = banca.getCliente(i);
-
-      System.out.println();
-      System.out.println("Cliente: " + cliente.getNome() + " " +cliente.getCognome());
-
-      for (int j=0; j < cliente.getNumConti(); j++) {
-        Conto conto = cliente.getConto(j);
-        String tipo_conto = "";
-
-        // Determinare il tipo di conto
-        if (conto instanceof LibrettoRisparmio) {
-          tipo_conto = "Libretto Risparmio";
-        }
-        if (conto instanceof ContoCorrente) {
-          tipo_conto = "Conto Corrente";
-        }
-
-        // Stampare il saldo del conto
-        System.out.println( "Conto[" + j + "] Saldo del " + tipo_conto + " : " + conto.getSaldo());
-      }
-    }
-  }
-}
-
-/* ************************************************************************** */
-
-// // Test per classe Banca versione 2 [ESERCIZIO 12]
+// // Test per classe Cliente versione 2 [ESERCIZIO 11 (parte 2)]
 //
 // public class TestBanca {
 //
 //   public static void main(String[] args) {
-//     Banca   banca = Banca.getBanca();
+//     Banca banca = new Banca();
 //     Cliente cliente;
-//     RapportoClienti rapporto = new RapportoClienti();
 //
-//     // Crea alcuni clienti ed i loro conti
+//     // Creazione dei clienti e dei loro conti
+//
 //     banca.addCliente("Carla", "Rossi");
 //     cliente = banca.getCliente(0);
 //     cliente.addConto(new LibrettoRisparmio(500.00, 0.05));
@@ -308,9 +250,67 @@ public class TestBanca {
 //     cliente.addConto(banca.getCliente(2).getConto(0));
 //     cliente.addConto(new LibrettoRisparmio(150.00, 0.05));
 //
-//     // Generara un rapporto
-//     rapporto.generaRapporto();
+//     // Genera un rapporto
+//
+//     for (int i=0; i < banca.getNumClienti(); i++) {
+//       cliente = banca.getCliente(i);
+//
+//       System.out.println();
+//       System.out.println("Cliente: " + cliente.getNome() + " " +cliente.getCognome());
+//
+//       for (int j=0; j < cliente.getNumConti(); j++) {
+//         Conto conto = cliente.getConto(j);
+//         String tipo_conto = "";
+//
+//         // Determinare il tipo di conto
+//         if (conto instanceof LibrettoRisparmio) {
+//           tipo_conto = "Libretto Risparmio";
+//         }
+//         if (conto instanceof ContoCorrente) {
+//           tipo_conto = "Conto Corrente";
+//         }
+//
+//         // Stampare il saldo del conto
+//         System.out.println( "Conto[" + j + "] Saldo del " + tipo_conto + " : " + conto.getSaldo());
+//       }
+//     }
 //   }
 // }
+
+/* ************************************************************************** */
+
+// Test per classe Banca versione 2 [ESERCIZIO 12]
+
+public class TestBanca {
+
+  public static void main(String[] args) {
+    Banca   banca = Banca.getBanca();
+    Cliente cliente;
+    RapportoClienti rapporto = new RapportoClienti();
+
+    // Crea alcuni clienti ed i loro conti
+    banca.addCliente("Carla", "Rossi");
+    cliente = banca.getCliente(0);
+    cliente.addConto(new LibrettoRisparmio(500.00, 0.05));
+    cliente.addConto(new ContoCorrente(200.00, 400.00));
+
+    banca.addCliente("Anna", "Bruni");
+    cliente = banca.getCliente(1);
+    cliente.addConto(new ContoCorrente(200.00));
+
+    banca.addCliente("Raul", "Falchi");
+    cliente = banca.getCliente(2);
+    cliente.addConto(new ContoCorrente(200.00));
+    cliente.addConto(new LibrettoRisparmio(1500.00, 0.05));
+
+    banca.addCliente("Vale", "Bova");
+    cliente = banca.getCliente(3);
+    cliente.addConto(banca.getCliente(2).getConto(0));
+    cliente.addConto(new LibrettoRisparmio(150.00, 0.05));
+
+    // Generara un rapporto
+    rapporto.generaRapporto();
+  }
+}
 
 /* ************************************************************************** */
