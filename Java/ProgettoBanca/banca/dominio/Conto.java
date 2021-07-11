@@ -1,14 +1,14 @@
 
 /* ************************************************************************** */
 
-package banca;
+package banca.dominio;
 
 /* ************************************************************************** */
 
 public class Conto {
 
   // Attributi
-  private double saldo;
+  protected double saldo;
 
   /* ************************************************************************ */
 
@@ -43,9 +43,9 @@ public class Conto {
   // Versione 2 di deposita e preleva
 
   // Aggiunge una somma al saldo corrente
-  public boolean deposita(double val) {
-    if (val > 0) {
-      saldo = saldo + val;
+  public boolean deposita(double somma) {
+    if (somma > 0) {
+      saldo += somma;
       return true;
     }
     else {
@@ -54,9 +54,9 @@ public class Conto {
   }
 
   // Sottrae una somma dal saldo corrente
-  public boolean preleva(double val) {
-    if (saldo >= val) {
-      saldo = saldo - val;
+  public boolean preleva(double somma) {
+    if (saldo >= somma) {
+      saldo -= somma;
       return true;
     }
     else {
