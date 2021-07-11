@@ -8,16 +8,26 @@ package banca.dominio;
 public class Banca /* Versione 2 */ {
 
   // Attributi
-  private static int MAX_CLIENTI = 10;
+  private static Banca istanza = new Banca(); // singoletto
+  private static final int MAX_CLIENTI = 10;
   private int numClienti = 0;
   private Cliente [] clienti;
 
   /* ************************************************************************ */
 
-  // Defualt constructor
-  public Banca() {
+  // Costruttore privato poiché deve essere usato solo dalla classe Banca
+  private Banca() {
     clienti = new Cliente [MAX_CLIENTI];
   }
+
+  /* ************************************************************************ */
+
+  // Inizializza l'unica istanza di Banca
+  public static Banca getBanca() {
+    return istanza;
+  }
+
+  /* ************************************************************************ */
 
   // Aggiunge un cliente alla Banca
   public void addCliente(String nome, String cognome) {
