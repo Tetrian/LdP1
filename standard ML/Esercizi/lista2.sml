@@ -40,6 +40,22 @@ fun reverse([]) = []
 
 (* ************************************************************************** *)
 
+(*
+  Svolgere il seguente esercizio usando al meglio una delle funzioni filter,
+  map, reduce e una opportuna funzione anonima: data una lista di interi L,
+  calcolare la sottolista che contiene solo i numeri pari in L
+*)
+
+fun filter f [] = []
+  | filter f (testa :: resto) =
+      if f(testa)
+        then testa :: (filter f resto)
+        else filter f resto;
+
+fun pari(L) = filter (fn x => x mod 2 = 0) L;
+
+(* ************************************************************************** *)
+
 (* TEST *)
 
 member([], 4);
@@ -56,5 +72,9 @@ concat([1,2], [3,4]);
 reverse([]);
 reverse([1,2,3]);
 reverse([1,2,3,4,5,6]);
+
+pari([0, 2, 3, 4, 5]);
+pari([2,4,6]);
+pari([1,3,5]);
 
 (* ************************************************************************** *)
