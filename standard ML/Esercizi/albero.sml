@@ -15,10 +15,46 @@ val A = nodo(1, nodo(2, nodo(4, vuoto, vuoto), nodo(5, vuoto, vuoto)), nodo(3, v
 
 (* ************************************************************************** *)
 
+(* FUNZIONI AUSILIARIE *)
+
+(* crea una lista con i nodi dell'albero in pre order *)
+fun preorder(vuoto) = []
+  | preorder(nodo(x, sx, dx)) = [x] @ (preorder(sx)) @ (preorder(dx));
+
+(* crea una lista con i nodi dell'albero in post order *)
+fun postorder(vuoto) = []
+  | postorder(nodo(x, sx, dx)) = (postorder(sx)) @ (postorder(dx)) @ [x];
+
+(* restituisce l'i-esimo elemento della lista *)
+fun trova(testa::resto, 0) = testa
+  | trova(testa::resto, n) = trova(resto, n-1);
+
+(* ************************************************************************** *)
+
 (* stampa del nodo ennesimo in pre order *)
-fun FoldPreOrder n =
-  if n = 0 then A
-  else let val nodo(_,sx,dx) = A
-  in FoldPreOrder (n-1)
+fun trovaPreOrder(alb, n) =  trova(preorder alb, n);
+
+(* ************************************************************************** *)
+
+(* stampa del nodo ennesimo in post order *)
+fun trovaPostOrder(alb, n) =  trova(postorder alb, n);
+
+(* ************************************************************************** *)
+
+(* TEST *)
+
+preorder(A);
+trovaPreOrder(A, 0);
+trovaPreOrder(A, 1);
+trovaPreOrder(A, 2);
+trovaPreOrder(A, 3);
+trovaPreOrder(A, 4);
+
+postorder(A);
+trovaPostOrder(A, 0);
+trovaPostOrder(A, 1);
+trovaPostOrder(A, 2);
+trovaPostOrder(A, 3);
+trovaPostOrder(A, 4);
 
 (* ************************************************************************** *)
