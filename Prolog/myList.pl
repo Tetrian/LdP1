@@ -14,7 +14,7 @@ member(X, [_| L]) :- member(X, L).
 
 % Concatenzaione di due liste
 append([], L, L).
-append([X,Tail], L, [X|RisParx]) :- append(Tail, L, RisParz).
+append([X,Tail], L, [X|RisParz]) :- append(Tail, L, RisParz).
 
 % Generazione di tutti i prefissi/suffissi di una lista
 prefix(Prefix, List) :- append(Prefix, _, List).
